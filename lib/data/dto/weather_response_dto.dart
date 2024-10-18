@@ -1,0 +1,104 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:weather_clean_architecture/data/dto/base_dto.dart';
+import 'package:weather_clean_architecture/domain/entities/current_response_entity.dart';
+import 'package:weather_clean_architecture/domain/entities/current_units_response_entity.dart';
+import 'package:weather_clean_architecture/domain/entities/weather_response_entity.dart';
+
+part 'weather_response_dto.g.dart';
+
+@JsonSerializable()
+class WeatherResponseDTO extends BaseDTO<WeatherResponseEntity> {
+  final CurrentResponseDTO? current;
+  @JsonKey(name: 'current_units')
+  final CurrentUnitsResponseDTO? currentUnits;
+  final double? elevation;
+
+  const WeatherResponseDTO({this.current, this.elevation, this.currentUnits});
+
+  @override
+  WeatherResponseEntity toEntity() {
+    return WeatherResponseEntity(
+      current: current?.toEntity(),
+      elevation: elevation,
+      currentUnits: currentUnits?.toEntity(),
+    );
+  }
+
+  factory WeatherResponseDTO.fromJson(Map<String, dynamic> json) =>
+      _$WeatherResponseDTOFromJson(json);
+
+  @override
+  List<Object?> get props => [current, elevation, currentUnits];
+}
+
+@JsonSerializable()
+class CurrentUnitsResponseDTO extends BaseDTO<CurrentUnitsResponseEntity> {
+  final String? time;
+  final String? interval;
+  final String? precipitation;
+  @JsonKey(name: 'temperature_2m')
+  final String? temperature2m;
+  @JsonKey(name: 'weather_code')
+  final String? weatherCode;
+  @JsonKey(name: 'wind_speed_10m')
+  final String? windSpeed10m;
+
+  const CurrentUnitsResponseDTO(
+      this.temperature2m, this.weatherCode, this.windSpeed10m,
+      {this.time, this.interval, this.precipitation});
+
+  @override
+  CurrentUnitsResponseEntity toEntity() {
+    return CurrentUnitsResponseEntity(
+      time: time,
+      interval: interval,
+      precipitation: precipitation,
+      temperature2m: temperature2m,
+      weatherCode: weatherCode,
+      windSpeed10m: windSpeed10m,
+    );
+  }
+
+  factory CurrentUnitsResponseDTO.fromJson(Map<String, dynamic> json) =>
+      _$CurrentUnitsResponseDTOFromJson(json);
+
+  @override
+  List<Object?> get props =>
+      [time, interval, precipitation, temperature2m, weatherCode, windSpeed10m];
+}
+
+@JsonSerializable()
+class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
+  final String? time;
+  final int? interval;
+  final double? precipitation;
+  @JsonKey(name: 'temperature_2m')
+  final double? temperature2m;
+  @JsonKey(name: 'weather_code')
+  final int? weatherCode;
+  @JsonKey(name: 'wind_speed_10m')
+  final double? windSpeed10m;
+
+  const CurrentResponseDTO(
+      this.temperature2m, this.weatherCode, this.windSpeed10m,
+      {this.time, this.interval, this.precipitation});
+
+  @override
+  CurrentResponseEntity toEntity() {
+    return CurrentResponseEntity(
+      time: time,
+      interval: interval,
+      precipitation: precipitation,
+      temperature2m: temperature2m,
+      weatherCode: weatherCode,
+      windSpeed10m: windSpeed10m,
+    );
+  }
+
+  factory CurrentResponseDTO.fromJson(Map<String, dynamic> json) =>
+      _$CurrentResponseDTOFromJson(json);
+
+  @override
+  List<Object?> get props =>
+      [time, interval, precipitation, temperature2m, weatherCode, windSpeed10m];
+}
