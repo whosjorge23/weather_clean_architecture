@@ -9,7 +9,7 @@ abstract class WeatherApiClient {
   factory WeatherApiClient(Dio dio) = _WeatherApiClient;
 
   @GET(
-      'https://api.open-meteo.com/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,precipitation,weather_code,wind_speed_10m')
+      '/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,precipitation,weather_code,wind_speed_10m')
   Future<WeatherResponseDTO> getWeather(
       @Path('latitude') double latitude, @Path('longitude') double longitude);
 }
