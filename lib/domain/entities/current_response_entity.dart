@@ -1,3 +1,4 @@
+import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
 import 'package:weather_clean_architecture/data/dto/weather_response_dto.dart';
 import 'package:weather_clean_architecture/domain/entities/base_entity.dart';
 
@@ -6,7 +7,7 @@ class CurrentResponseEntity extends BaseEntity {
   final int? interval;
   final double? precipitation;
   final double? temperature2m;
-  final int? weatherCode;
+  final WeatherCodeEnum? weatherCode;
   final double? windSpeed10m;
 
   const CurrentResponseEntity({
@@ -22,7 +23,7 @@ class CurrentResponseEntity extends BaseEntity {
   CurrentResponseDTO toDTO() {
     return CurrentResponseDTO(
       temperature2m,
-      weatherCode,
+      weatherCode?.weatherCode,
       windSpeed10m,
       time: time,
       interval: interval,

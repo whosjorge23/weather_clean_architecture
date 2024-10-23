@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
 import 'package:weather_clean_architecture/data/dto/base_dto.dart';
 import 'package:weather_clean_architecture/domain/entities/current_response_entity.dart';
 import 'package:weather_clean_architecture/domain/entities/current_units_response_entity.dart';
@@ -90,7 +91,7 @@ class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
       interval: interval,
       precipitation: precipitation,
       temperature2m: temperature2m,
-      weatherCode: weatherCode,
+      weatherCode: WeatherCodeEnumExtension.getByWeatherCode(weatherCode ?? 0),
       windSpeed10m: windSpeed10m,
     );
   }
