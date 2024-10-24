@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:weather_clean_architecture/core/shared/context_extension.dart';
 import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
 import 'package:weather_clean_architecture/domain/entities/weather_response_entity.dart';
 
@@ -30,7 +31,7 @@ class WeatherPageContent extends StatelessWidget {
             'Wind Speed at 10m: ${weatherEntity.current?.windSpeed10m}${weatherEntity.currentUnits?.windSpeed10m}',
           ),
           switch (weatherEntity.current?.weatherCode) {
-            WeatherCodeEnum.clearsky => Text('Clear sky'),
+            WeatherCodeEnum.clearsky => Text(context.l10n.clearsky),
             WeatherCodeEnum.mainlyclear => Text('Mainly clear'),
             WeatherCodeEnum.partlycloudy => Text('partly cloudy'),
             WeatherCodeEnum.overcast => Text('overcast'),
