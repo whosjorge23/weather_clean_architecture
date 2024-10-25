@@ -11,11 +11,19 @@ class WeatherRepositoryImpl implements WeatherRepository {
       : _weatherRemoteDataSource = weatherRemoteDataSource;
 
   @override
-  Future<ResponseWrapper<WeatherResponseEntity>> getWeather(
-      {required double latitude, required double longitude}) {
+  Future<ResponseWrapper<WeatherResponseEntity>> getWeather({
+    required double latitude,
+    required double longitude,
+    required String temperatureUnit,
+    required String windSpeed,
+  }) {
     return execute(() async {
       final response = await _weatherRemoteDataSource.getWeather(
-          latitude: latitude, longitude: longitude);
+        latitude: latitude,
+        longitude: longitude,
+        temperatureUnit: temperatureUnit,
+        windSpeed: windSpeed,
+      );
       return response.toEntity();
     });
   }

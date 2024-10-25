@@ -9,7 +9,11 @@ abstract class WeatherApiClient {
   factory WeatherApiClient(Dio dio) = _WeatherApiClient;
 
   @GET(
-      '/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,precipitation,weather_code,wind_speed_10m')
+      '/v1/forecast?latitude={latitude}&longitude={longitude}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&temperature_unit={temperatureUnit}&wind_speed_unit={windSpeed}')
   Future<WeatherResponseDTO> getWeather(
-      @Path('latitude') double latitude, @Path('longitude') double longitude);
+    @Path('latitude') double latitude,
+    @Path('longitude') double longitude,
+    @Path('temperatureUnit') String temperatureUnit,
+    @Path('windSpeed') String windSpeed,
+  );
 }

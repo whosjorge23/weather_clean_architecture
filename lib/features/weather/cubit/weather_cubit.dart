@@ -15,9 +15,14 @@ class WeatherCubit extends Cubit<WeatherState> {
   Future<void> getWeather() async {
     Position position = await _weatherUseCases.getLocation();
     emit(const WeatherLoading());
-    debugPrint('Position: ${position.latitude} ${position.longitude}');
+    debugPrint(
+        'Position: ${position.latitude} ${position.longitude} ${localeService.currentLocale}');
     final response = await _weatherUseCases.getWeather(
-        position.latitude, position.longitude);
+      position.latitude,
+      position.longitude,
+      localeService.temperatureUnit(),
+      localeService.speedUnit(),
+    );
     response.when(
       (data) => emit(WeatherData(data)),
       (error) {

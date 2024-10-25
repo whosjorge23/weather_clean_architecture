@@ -10,10 +10,14 @@ class WeatherUseCases {
 
   WeatherUseCases(this._weatherRepository, this._locationRepository);
 
-  Future<ResponseWrapper<WeatherResponseEntity>> getWeather(
-      double latitude, double longitude) async {
+  Future<ResponseWrapper<WeatherResponseEntity>> getWeather(double latitude,
+      double longitude, String temperatureUnit, String windSpeed) async {
     return _weatherRepository.getWeather(
-        latitude: latitude, longitude: longitude);
+      latitude: latitude,
+      longitude: longitude,
+      temperatureUnit: temperatureUnit,
+      windSpeed: windSpeed,
+    );
   }
 
   Future<Position> getLocation() async {

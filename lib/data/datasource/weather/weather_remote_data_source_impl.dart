@@ -9,7 +9,10 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
 
   @override
   Future<WeatherResponseDTO> getWeather(
-      {required latitude, required longitude}) {
-    return client.getWeather(latitude, longitude);
+      {required latitude,
+      required longitude,
+      required temperatureUnit,
+      required windSpeed}) {
+    return client.getWeather(latitude, longitude, temperatureUnit, windSpeed);
   }
 }

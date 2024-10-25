@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:weather_clean_architecture/core/environment/environment.dart';
+import 'package:weather_clean_architecture/core/service/locale_service.dart';
 import 'package:weather_clean_architecture/data/datasource/location/location_local_data_source.dart';
 import 'package:weather_clean_architecture/data/datasource/weather/weather_api_client.dart';
 import 'package:weather_clean_architecture/data/datasource/weather/weather_remote_datasource.dart';
@@ -28,3 +29,7 @@ LocationLocalRepository get locationLocalRepository =>
 
 // Use Cases
 WeatherUseCases get weatherUseCases => GetIt.I<WeatherUseCases>();
+
+//Services
+// Locale app service
+LocaleService get localeService => GetIt.I<LocaleService>();

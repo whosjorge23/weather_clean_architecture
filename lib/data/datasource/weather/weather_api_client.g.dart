@@ -25,6 +25,8 @@ class _WeatherApiClient implements WeatherApiClient {
   Future<WeatherResponseDTO> getWeather(
     double latitude,
     double longitude,
+    String temperatureUnit,
+    String windSpeed,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -37,7 +39,7 @@ class _WeatherApiClient implements WeatherApiClient {
     )
         .compose(
           _dio.options,
-          '/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,precipitation,weather_code,wind_speed_10m',
+          '/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&temperature_unit=${temperatureUnit}&wind_speed_unit=${windSpeed}',
           queryParameters: queryParameters,
           data: _data,
         )
