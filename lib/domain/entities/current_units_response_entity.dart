@@ -8,6 +8,8 @@ class CurrentUnitsResponseEntity extends BaseEntity {
   final String? temperature2m;
   final String? weatherCode;
   final String? windSpeed10m;
+  final String? relativeHumidity2m;
+  final String? apparentTemperature;
 
   const CurrentUnitsResponseEntity({
     this.time,
@@ -16,6 +18,8 @@ class CurrentUnitsResponseEntity extends BaseEntity {
     this.temperature2m,
     this.weatherCode,
     this.windSpeed10m,
+    this.relativeHumidity2m,
+    this.apparentTemperature,
   });
 
   @override
@@ -27,10 +31,20 @@ class CurrentUnitsResponseEntity extends BaseEntity {
       time: time,
       interval: interval,
       precipitation: precipitation,
+      relativeHumidity2m: relativeHumidity2m,
+      apparentTemperature: apparentTemperature,
     );
   }
 
   @override
-  List<Object?> get props =>
-      [time, interval, precipitation, temperature2m, weatherCode, windSpeed10m];
+  List<Object?> get props => [
+        time,
+        interval,
+        precipitation,
+        temperature2m,
+        weatherCode,
+        windSpeed10m,
+        relativeHumidity2m,
+        apparentTemperature,
+      ];
 }

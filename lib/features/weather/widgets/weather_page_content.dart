@@ -30,41 +30,55 @@ class WeatherPageContent extends StatelessWidget {
           Text(
             'Wind Speed at 10m: ${weatherEntity.current?.windSpeed10m}${weatherEntity.currentUnits?.windSpeed10m}',
           ),
+          Text(
+            'Relative Humidity at 2m: ${weatherEntity.current?.relativeHumidity2m}${weatherEntity.currentUnits?.relativeHumidity2m}',
+          ),
+          Text(
+            'Apparent Temperature: ${weatherEntity.current?.apparentTemperature}${weatherEntity.currentUnits?.temperature2m}',
+          ),
           switch (weatherEntity.current?.weatherCode) {
             WeatherCodeEnum.clearsky => Text(context.l10n.clearsky),
-            WeatherCodeEnum.mainlyclear => Text('Mainly clear'),
-            WeatherCodeEnum.partlycloudy => Text('partly cloudy'),
-            WeatherCodeEnum.overcast => Text('overcast'),
-            WeatherCodeEnum.fog => Text('Fog'),
-            WeatherCodeEnum.rimeFog => Text('depositing rime fog'),
-            WeatherCodeEnum.drizzleLight => Text('Drizzle Light'),
-            WeatherCodeEnum.drizzleModerate => Text('Drizzle Moderate'),
-            WeatherCodeEnum.drizzleDense => Text('Drizzle Dense'),
+            WeatherCodeEnum.mainlyclear => Text(context.l10n.mainlyclear),
+            WeatherCodeEnum.partlycloudy => Text(context.l10n.partlycloudy),
+            WeatherCodeEnum.overcast => Text(context.l10n.overcast),
+            WeatherCodeEnum.fog => Text(context.l10n.fog),
+            WeatherCodeEnum.rimeFog => Text(context.l10n.rimeFog),
+            WeatherCodeEnum.drizzleLight => Text(context.l10n.drizzleLight),
+            WeatherCodeEnum.drizzleModerate =>
+              Text(context.l10n.drizzleModerate),
+            WeatherCodeEnum.drizzleDense => Text(context.l10n.drizzleDense),
             WeatherCodeEnum.freezingDrizzleLight =>
-              Text('Freezing Drizzle Light'),
+              Text(context.l10n.freezingDrizzleLight),
             WeatherCodeEnum.freezingDrizzleDense =>
-              Text('Freezing Drizzle Dense'),
-            WeatherCodeEnum.rainSlight => Text('Rain Slight'),
-            WeatherCodeEnum.rainModerate => Text('Rain Moderate'),
-            WeatherCodeEnum.rainHeavy => Text('Rain Heavy'),
-            WeatherCodeEnum.freezingRainLight => Text('Freezing Rain Light'),
-            WeatherCodeEnum.freezingRainHeavy => Text('Freezing Rain Heavy'),
-            WeatherCodeEnum.snowFallSlight => Text('Snow Fall Slight'),
-            WeatherCodeEnum.snowFallModerate => Text('Snow Fall Moderate'),
-            WeatherCodeEnum.snowFallHeavy => Text('Snow Fall Heavy'),
-            WeatherCodeEnum.snowGrains => Text('Snow Grains'),
-            WeatherCodeEnum.rainShowersSlight => Text('Rain Showers Slight'),
+              Text(context.l10n.freezingDrizzleDense),
+            WeatherCodeEnum.rainSlight => Text(context.l10n.rainSlight),
+            WeatherCodeEnum.rainModerate => Text(context.l10n.rainModerate),
+            WeatherCodeEnum.rainHeavy => Text(context.l10n.rainHeavy),
+            WeatherCodeEnum.freezingRainLight =>
+              Text(context.l10n.freezingRainLight),
+            WeatherCodeEnum.freezingRainHeavy =>
+              Text(context.l10n.freezingRainHeavy),
+            WeatherCodeEnum.snowFallSlight => Text(context.l10n.snowFallSlight),
+            WeatherCodeEnum.snowFallModerate =>
+              Text(context.l10n.snowFallModerate),
+            WeatherCodeEnum.snowFallHeavy => Text(context.l10n.snowFallHeavy),
+            WeatherCodeEnum.snowGrains => Text(context.l10n.snowGrains),
+            WeatherCodeEnum.rainShowersSlight =>
+              Text(context.l10n.rainShowersSlight),
             WeatherCodeEnum.rainShowersModerate =>
-              Text('Rain Showers Moderate'),
-            WeatherCodeEnum.rainShowersViolent => Text('Rain Showers Violent'),
-            WeatherCodeEnum.snowShowersSlight => Text('Snow Showers Slight'),
-            WeatherCodeEnum.snowShowersHeavy => Text('Snow Showers Heavy'),
-            WeatherCodeEnum.thunderstorm => Text('Thunderstorm'),
+              Text(context.l10n.rainShowersModerate),
+            WeatherCodeEnum.rainShowersViolent =>
+              Text(context.l10n.rainShowersViolent),
+            WeatherCodeEnum.snowShowersSlight =>
+              Text(context.l10n.snowShowersSlight),
+            WeatherCodeEnum.snowShowersHeavy =>
+              Text(context.l10n.snowShowersHeavy),
+            WeatherCodeEnum.thunderstorm => Text(context.l10n.thunderstorm),
             WeatherCodeEnum.thunderstormSlightHail =>
-              Text('Thunderstorm Slight Hail'),
+              Text(context.l10n.thunderstormSlightHail),
             WeatherCodeEnum.thunderstormHeavyHail =>
-              Text('Thunderstorm Heavy Hail'),
-            _ => Text('Clear Sky'),
+              Text(context.l10n.thunderstormHeavyHail),
+            _ => Text(context.l10n.clearsky),
           },
           // Text(
           //   'Weather Code: ${weatherEntity.current?.weatherCode}',

@@ -43,10 +43,21 @@ class CurrentUnitsResponseDTO extends BaseDTO<CurrentUnitsResponseEntity> {
   final String? weatherCode;
   @JsonKey(name: 'wind_speed_10m')
   final String? windSpeed10m;
+  @JsonKey(name: 'relative_humidity_2m')
+  final String? relativeHumidity2m;
+  @JsonKey(name: 'apparent_temperature')
+  final String? apparentTemperature;
 
   const CurrentUnitsResponseDTO(
-      this.temperature2m, this.weatherCode, this.windSpeed10m,
-      {this.time, this.interval, this.precipitation});
+    this.temperature2m,
+    this.weatherCode,
+    this.windSpeed10m, {
+    this.time,
+    this.interval,
+    this.precipitation,
+    this.relativeHumidity2m,
+    this.apparentTemperature,
+  });
 
   @override
   CurrentUnitsResponseEntity toEntity() {
@@ -57,6 +68,8 @@ class CurrentUnitsResponseDTO extends BaseDTO<CurrentUnitsResponseEntity> {
       temperature2m: temperature2m,
       weatherCode: weatherCode,
       windSpeed10m: windSpeed10m,
+      relativeHumidity2m: relativeHumidity2m,
+      apparentTemperature: apparentTemperature,
     );
   }
 
@@ -64,8 +77,16 @@ class CurrentUnitsResponseDTO extends BaseDTO<CurrentUnitsResponseEntity> {
       _$CurrentUnitsResponseDTOFromJson(json);
 
   @override
-  List<Object?> get props =>
-      [time, interval, precipitation, temperature2m, weatherCode, windSpeed10m];
+  List<Object?> get props => [
+        time,
+        interval,
+        precipitation,
+        temperature2m,
+        weatherCode,
+        windSpeed10m,
+        relativeHumidity2m,
+        apparentTemperature
+      ];
 }
 
 @JsonSerializable()
@@ -79,10 +100,21 @@ class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
   final int? weatherCode;
   @JsonKey(name: 'wind_speed_10m')
   final double? windSpeed10m;
+  @JsonKey(name: 'relative_humidity_2m')
+  final int? relativeHumidity2m;
+  @JsonKey(name: 'apparent_temperature')
+  final double? apparentTemperature;
 
   const CurrentResponseDTO(
-      this.temperature2m, this.weatherCode, this.windSpeed10m,
-      {this.time, this.interval, this.precipitation});
+    this.temperature2m,
+    this.weatherCode,
+    this.windSpeed10m, {
+    this.time,
+    this.interval,
+    this.precipitation,
+    this.relativeHumidity2m,
+    this.apparentTemperature,
+  });
 
   @override
   CurrentResponseEntity toEntity() {
@@ -93,6 +125,8 @@ class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
       temperature2m: temperature2m,
       weatherCode: WeatherCodeEnumExtension.getByWeatherCode(weatherCode ?? 0),
       windSpeed10m: windSpeed10m,
+      relativeHumidity2m: relativeHumidity2m,
+      apparentTemperature: apparentTemperature,
     );
   }
 
@@ -100,6 +134,14 @@ class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
       _$CurrentResponseDTOFromJson(json);
 
   @override
-  List<Object?> get props =>
-      [time, interval, precipitation, temperature2m, weatherCode, windSpeed10m];
+  List<Object?> get props => [
+        time,
+        interval,
+        precipitation,
+        temperature2m,
+        weatherCode,
+        windSpeed10m,
+        relativeHumidity2m,
+        apparentTemperature
+      ];
 }

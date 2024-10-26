@@ -39,7 +39,7 @@ class _WeatherApiClient implements WeatherApiClient {
     )
         .compose(
           _dio.options,
-          '/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,precipitation,weather_code,wind_speed_10m&temperature_unit=${temperatureUnit}&wind_speed_unit=${windSpeed}',
+          '/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&temperature_unit=${temperatureUnit}&wind_speed_unit=${windSpeed}',
           queryParameters: queryParameters,
           data: _data,
         )
