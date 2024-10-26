@@ -11,6 +11,8 @@ class CurrentResponseEntity extends BaseEntity {
   final double? windSpeed10m;
   final int? relativeHumidity2m;
   final double? apparentTemperature;
+  final double? rain;
+  final int? cloudCover;
 
   const CurrentResponseEntity({
     this.time,
@@ -21,6 +23,8 @@ class CurrentResponseEntity extends BaseEntity {
     this.windSpeed10m,
     this.relativeHumidity2m,
     this.apparentTemperature,
+    this.rain,
+    this.cloudCover,
   });
 
   @override
@@ -34,6 +38,8 @@ class CurrentResponseEntity extends BaseEntity {
       precipitation: precipitation,
       relativeHumidity2m: relativeHumidity2m,
       apparentTemperature: apparentTemperature,
+      rain: rain,
+      cloudCover: cloudCover,
     );
   }
 
@@ -47,5 +53,7 @@ class CurrentResponseEntity extends BaseEntity {
         windSpeed10m,
         relativeHumidity2m,
         apparentTemperature,
+        rain,
+        cloudCover,
       ];
 }

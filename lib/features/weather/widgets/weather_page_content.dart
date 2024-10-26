@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:weather_clean_architecture/core/shared/context_extension.dart';
 import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
 import 'package:weather_clean_architecture/domain/entities/weather_response_entity.dart';
-
-import '../../../data/dto/weather_response_dto.dart';
+import 'package:weather_clean_architecture/features/weather/widgets/weather_info.dart';
 
 class WeatherPageContent extends StatelessWidget {
   const WeatherPageContent(
@@ -18,24 +18,24 @@ class WeatherPageContent extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Text(
-            'Precipitation: ${weatherEntity.current?.precipitation}${weatherEntity.currentUnits?.precipitation}',
-          ),
-          Text(
-            'Time: ${weatherEntity.current?.time}',
-          ),
-          Text(
-            'Temperature at 2m: ${weatherEntity.current?.temperature2m}${weatherEntity.currentUnits?.temperature2m}',
-          ),
-          Text(
-            'Wind Speed at 10m: ${weatherEntity.current?.windSpeed10m}${weatherEntity.currentUnits?.windSpeed10m}',
-          ),
-          Text(
-            'Relative Humidity at 2m: ${weatherEntity.current?.relativeHumidity2m}${weatherEntity.currentUnits?.relativeHumidity2m}',
-          ),
-          Text(
-            'Apparent Temperature: ${weatherEntity.current?.apparentTemperature}${weatherEntity.currentUnits?.temperature2m}',
-          ),
+          // Text(
+          //   'Precipitation: ${weatherEntity.current?.precipitation}${weatherEntity.currentUnits?.precipitation}',
+          // ),
+          // Text(
+          //   'Time: ${weatherEntity.current?.time}',
+          // ),
+          // Text(
+          //   'Temperature at 2m: ${weatherEntity.current?.temperature2m}${weatherEntity.currentUnits?.temperature2m}',
+          // ),
+          // Text(
+          //   'Wind Speed at 10m: ${weatherEntity.current?.windSpeed10m}${weatherEntity.currentUnits?.windSpeed10m}',
+          // ),
+          // Text(
+          //   'Relative Humidity at 2m: ${weatherEntity.current?.relativeHumidity2m}${weatherEntity.currentUnits?.relativeHumidity2m}',
+          // ),
+          // Text(
+          //   'Apparent Temperature: ${weatherEntity.current?.apparentTemperature}${weatherEntity.currentUnits?.temperature2m}',
+          // ),
           switch (weatherEntity.current?.weatherCode) {
             WeatherCodeEnum.clearsky => Text(context.l10n.clearsky),
             WeatherCodeEnum.mainlyclear => Text(context.l10n.mainlyclear),
@@ -80,9 +80,59 @@ class WeatherPageContent extends StatelessWidget {
               Text(context.l10n.thunderstormHeavyHail),
             _ => Text(context.l10n.clearsky),
           },
-          // Text(
-          //   'Weather Code: ${weatherEntity.current?.weatherCode}',
-          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                children: [
+                  Positioned(
+                    bottom: 16,
+                    right: 16,
+                    child: Text(
+                        '${weatherEntity.currentUnits?.apparentTemperature}'),
+                  ),
+                  Text(
+                    '${weatherEntity.current?.apparentTemperature}°',
+                    style: const TextStyle(fontSize: 100),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  WeatherInfo(
+                    icon: Icons.wind_power,
+                    weatherInfo:
+                        '${weatherEntity.current?.windSpeed10m}${weatherEntity.currentUnits?.windSpeed10m}',
+                    label: 'Wind',
+                  ),
+                  WeatherInfo(
+                    icon: Icons.water_drop,
+                    weatherInfo:
+                        '${weatherEntity.current?.relativeHumidity2m}${weatherEntity.currentUnits?.relativeHumidity2m}',
+                    label: 'Humidity',
+                  ),
+                  WeatherInfo(
+                    icon: Icons.cloud,
+                    weatherInfo:
+                        '${weatherEntity.current?.cloudCover}${weatherEntity.currentUnits?.cloudCover}',
+                    label: 'Clouds',
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

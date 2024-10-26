@@ -37,6 +37,8 @@ CurrentUnitsResponseDTO _$CurrentUnitsResponseDTOFromJson(
       precipitation: json['precipitation'] as String?,
       relativeHumidity2m: json['relative_humidity_2m'] as String?,
       apparentTemperature: json['apparent_temperature'] as String?,
+      rain: json['rain'] as String?,
+      cloudCover: json['cloud_cover'] as String?,
     );
 
 Map<String, dynamic> _$CurrentUnitsResponseDTOToJson(
@@ -50,6 +52,8 @@ Map<String, dynamic> _$CurrentUnitsResponseDTOToJson(
       'wind_speed_10m': instance.windSpeed10m,
       'relative_humidity_2m': instance.relativeHumidity2m,
       'apparent_temperature': instance.apparentTemperature,
+      'rain': instance.rain,
+      'cloud_cover': instance.cloudCover,
     };
 
 CurrentResponseDTO _$CurrentResponseDTOFromJson(Map<String, dynamic> json) =>
@@ -62,6 +66,8 @@ CurrentResponseDTO _$CurrentResponseDTOFromJson(Map<String, dynamic> json) =>
       precipitation: (json['precipitation'] as num?)?.toDouble(),
       relativeHumidity2m: (json['relative_humidity_2m'] as num?)?.toInt(),
       apparentTemperature: (json['apparent_temperature'] as num?)?.toDouble(),
+      rain: (json['rain'] as num?)?.toDouble(),
+      cloudCover: (json['cloud_cover'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$CurrentResponseDTOToJson(CurrentResponseDTO instance) =>
@@ -74,4 +80,6 @@ Map<String, dynamic> _$CurrentResponseDTOToJson(CurrentResponseDTO instance) =>
       'wind_speed_10m': instance.windSpeed10m,
       'relative_humidity_2m': instance.relativeHumidity2m,
       'apparent_temperature': instance.apparentTemperature,
+      'rain': instance.rain,
+      'cloud_cover': instance.cloudCover,
     };

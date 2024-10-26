@@ -47,6 +47,10 @@ class CurrentUnitsResponseDTO extends BaseDTO<CurrentUnitsResponseEntity> {
   final String? relativeHumidity2m;
   @JsonKey(name: 'apparent_temperature')
   final String? apparentTemperature;
+  @JsonKey(name: 'rain')
+  final String? rain;
+  @JsonKey(name: 'cloud_cover')
+  final String? cloudCover;
 
   const CurrentUnitsResponseDTO(
     this.temperature2m,
@@ -57,6 +61,8 @@ class CurrentUnitsResponseDTO extends BaseDTO<CurrentUnitsResponseEntity> {
     this.precipitation,
     this.relativeHumidity2m,
     this.apparentTemperature,
+    this.rain,
+    this.cloudCover,
   });
 
   @override
@@ -70,6 +76,8 @@ class CurrentUnitsResponseDTO extends BaseDTO<CurrentUnitsResponseEntity> {
       windSpeed10m: windSpeed10m,
       relativeHumidity2m: relativeHumidity2m,
       apparentTemperature: apparentTemperature,
+      rain: rain,
+      cloudCover: cloudCover,
     );
   }
 
@@ -85,7 +93,9 @@ class CurrentUnitsResponseDTO extends BaseDTO<CurrentUnitsResponseEntity> {
         weatherCode,
         windSpeed10m,
         relativeHumidity2m,
-        apparentTemperature
+        apparentTemperature,
+        rain,
+        cloudCover
       ];
 }
 
@@ -104,6 +114,10 @@ class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
   final int? relativeHumidity2m;
   @JsonKey(name: 'apparent_temperature')
   final double? apparentTemperature;
+  @JsonKey(name: 'rain')
+  final double? rain;
+  @JsonKey(name: 'cloud_cover')
+  final int? cloudCover;
 
   const CurrentResponseDTO(
     this.temperature2m,
@@ -114,6 +128,8 @@ class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
     this.precipitation,
     this.relativeHumidity2m,
     this.apparentTemperature,
+    this.rain,
+    this.cloudCover,
   });
 
   @override
@@ -127,6 +143,8 @@ class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
       windSpeed10m: windSpeed10m,
       relativeHumidity2m: relativeHumidity2m,
       apparentTemperature: apparentTemperature,
+      rain: rain,
+      cloudCover: cloudCover,
     );
   }
 
@@ -142,6 +160,8 @@ class CurrentResponseDTO extends BaseDTO<CurrentResponseEntity> {
         weatherCode,
         windSpeed10m,
         relativeHumidity2m,
-        apparentTemperature
+        apparentTemperature,
+        rain,
+        cloudCover,
       ];
 }

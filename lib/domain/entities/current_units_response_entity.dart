@@ -10,6 +10,8 @@ class CurrentUnitsResponseEntity extends BaseEntity {
   final String? windSpeed10m;
   final String? relativeHumidity2m;
   final String? apparentTemperature;
+  final String? rain;
+  final String? cloudCover;
 
   const CurrentUnitsResponseEntity({
     this.time,
@@ -20,6 +22,8 @@ class CurrentUnitsResponseEntity extends BaseEntity {
     this.windSpeed10m,
     this.relativeHumidity2m,
     this.apparentTemperature,
+    this.rain,
+    this.cloudCover,
   });
 
   @override
@@ -33,6 +37,8 @@ class CurrentUnitsResponseEntity extends BaseEntity {
       precipitation: precipitation,
       relativeHumidity2m: relativeHumidity2m,
       apparentTemperature: apparentTemperature,
+      rain: rain,
+      cloudCover: cloudCover,
     );
   }
 
@@ -46,5 +52,7 @@ class CurrentUnitsResponseEntity extends BaseEntity {
         windSpeed10m,
         relativeHumidity2m,
         apparentTemperature,
+        rain,
+        cloudCover,
       ];
 }
