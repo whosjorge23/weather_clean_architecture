@@ -24,7 +24,10 @@ class WeatherPage extends StatelessWidget {
         },
         builder: (context, state) => switch (state) {
           WeatherData() => WeatherPageContent(state.weather),
-          WeatherLoading() => const Center(child: CircularProgressIndicator()),
+          WeatherLoading() => const Center(
+                child: CircularProgressIndicator(
+              color: Colors.black,
+            )),
           _ => Container(),
         },
       ),

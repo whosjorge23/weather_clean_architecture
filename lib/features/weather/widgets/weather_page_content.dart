@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_clean_architecture/core/shared/context_extension.dart';
 import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
 import 'package:weather_clean_architecture/domain/entities/weather_response_entity.dart';
@@ -36,6 +37,20 @@ class WeatherPageContent extends StatelessWidget {
           // Text(
           //   'Apparent Temperature: ${weatherEntity.current?.apparentTemperature}${weatherEntity.currentUnits?.temperature2m}',
           // ),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Text(
+              "${DateFormat('EEEE, d MMMM').format(DateTime.now())}",
+              style: const TextStyle(
+                color: Color(0xff42c6ff),
+              ),
+            ),
+          ),
+          const Gap(16),
           switch (weatherEntity.current?.weatherCode) {
             WeatherCodeEnum.clearsky => Text(context.l10n.clearsky),
             WeatherCodeEnum.mainlyclear => Text(context.l10n.mainlyclear),
