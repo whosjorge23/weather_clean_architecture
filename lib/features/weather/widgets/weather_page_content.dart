@@ -95,25 +95,23 @@ class WeatherPageContent extends StatelessWidget {
               Text(context.l10n.thunderstormHeavyHail),
             _ => Text(context.l10n.clearsky),
           },
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Stack(
-                children: [
-                  Positioned(
-                    bottom: 16,
-                    right: 16,
-                    child: Text(
-                        '${weatherEntity.currentUnits?.apparentTemperature}'),
-                  ),
-                  Text(
-                    '${weatherEntity.current?.apparentTemperature}°',
-                    style: const TextStyle(fontSize: 100),
-                  ),
-                ],
-              ),
-            ],
+
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '${weatherEntity.current?.apparentTemperature?.toInt()}',
+                  style: TextStyle(fontSize: 150),
+                ),
+                Text(
+                  '${weatherEntity.currentUnits?.apparentTemperature}',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                )
+              ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -130,19 +128,19 @@ class WeatherPageContent extends StatelessWidget {
                     icon: Icons.wind_power,
                     weatherInfo:
                         '${weatherEntity.current?.windSpeed10m}${weatherEntity.currentUnits?.windSpeed10m}',
-                    label: 'Wind',
+                    label: '${context.l10n.wind}',
                   ),
                   WeatherInfo(
                     icon: Icons.water_drop,
                     weatherInfo:
                         '${weatherEntity.current?.relativeHumidity2m}${weatherEntity.currentUnits?.relativeHumidity2m}',
-                    label: 'Humidity',
+                    label: '${context.l10n.humidity}',
                   ),
                   WeatherInfo(
                     icon: Icons.cloud,
                     weatherInfo:
                         '${weatherEntity.current?.cloudCover}${weatherEntity.currentUnits?.cloudCover}',
-                    label: 'Clouds',
+                    label: '${context.l10n.clouds}',
                   ),
                 ],
               ),

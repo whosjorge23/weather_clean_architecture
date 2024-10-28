@@ -27,5 +27,8 @@
   "snowShowersHeavy": "Snow Showers Heavy",
   "thunderstorm": "Thunderstorm",
   "thunderstormSlightHail": "Thunderstorm Slight Hail",
-  "thunderstormHeavyHail": "Thunderstorm Heavy Hail"
+  "thunderstormHeavyHail": "Thunderstorm Heavy Hail",
+                                                      "wind": "Wind",
+                                                      "humidity": "Humidity",
+                                                      "clouds": "Clouds"
 }

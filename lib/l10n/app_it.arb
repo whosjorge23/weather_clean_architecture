@@ -27,5 +27,8 @@
   "snowShowersHeavy": "Rovesci di neve intensi",
   "thunderstorm": "Temporale",
   "thunderstormSlightHail": "Temporale con grandine leggera",
-  "thunderstormHeavyHail": "Temporale con grandine intensa"
+  "thunderstormHeavyHail": "Temporale con grandine intensa",
+  "wind": "Vento",
+  "humidity": "Umidità",
+  "clouds": "Nuvole"
 }
