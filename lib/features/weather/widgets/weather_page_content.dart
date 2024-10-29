@@ -44,7 +44,7 @@ class WeatherPageContent extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
-              "${DateFormat('EEEE, d MMMM').format(DateTime.now())}",
+              DateFormat('EEEE, d MMMM').format(DateTime.now()),
               style: const TextStyle(
                 color: Color(0xff42c6ff),
               ),
@@ -104,11 +104,11 @@ class WeatherPageContent extends StatelessWidget {
               children: [
                 Text(
                   '${weatherEntity.current?.apparentTemperature?.toInt()}',
-                  style: TextStyle(fontSize: 150),
+                  style: const TextStyle(fontSize: 150),
                 ),
                 Text(
                   '${weatherEntity.currentUnits?.apparentTemperature}',
-                  style: TextStyle(fontWeight: FontWeight.w500),
+                  style: const TextStyle(fontWeight: FontWeight.w500),
                 )
               ],
             ),
@@ -128,19 +128,25 @@ class WeatherPageContent extends StatelessWidget {
                     icon: Icons.wind_power,
                     weatherInfo:
                         '${weatherEntity.current?.windSpeed10m}${weatherEntity.currentUnits?.windSpeed10m}',
-                    label: '${context.l10n.wind}',
+                    label: context.l10n.wind,
                   ),
                   WeatherInfo(
                     icon: Icons.water_drop,
                     weatherInfo:
                         '${weatherEntity.current?.relativeHumidity2m}${weatherEntity.currentUnits?.relativeHumidity2m}',
-                    label: '${context.l10n.humidity}',
+                    label: context.l10n.humidity,
                   ),
                   WeatherInfo(
                     icon: Icons.cloud,
                     weatherInfo:
                         '${weatherEntity.current?.cloudCover}${weatherEntity.currentUnits?.cloudCover}',
-                    label: '${context.l10n.clouds}',
+                    label: context.l10n.clouds,
+                  ),
+                  WeatherInfo(
+                    icon: Icons.water_drop_outlined,
+                    weatherInfo:
+                        '${weatherEntity.current?.rain}${weatherEntity.currentUnits?.rain}',
+                    label: context.l10n.rain,
                   ),
                 ],
               ),

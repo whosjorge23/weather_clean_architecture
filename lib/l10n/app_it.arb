@@ -30,5 +30,6 @@
   "thunderstormHeavyHail": "Temporale con grandine intensa",
   "wind": "Vento",
   "humidity": "Umidità",
-  "clouds": "Nuvole"
+  "clouds": "Nuvole",
+  "rain": "Pioggia"
 }
