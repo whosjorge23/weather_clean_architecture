@@ -10,9 +10,9 @@ class WeatherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Weather Page'),
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Weather Page'),
+      // ),
       body: BlocConsumer<WeatherCubit, WeatherState>(
         listener: (context, state) {
           if (state is WeatherError) {
