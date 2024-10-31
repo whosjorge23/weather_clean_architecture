@@ -1,3 +1,4 @@
+import 'package:weather_clean_architecture/data/dto/daily_units_response_dto.dart';
 import 'package:weather_clean_architecture/data/dto/weather_response_dto.dart';
 import 'package:weather_clean_architecture/domain/entities/base_entity.dart';
 

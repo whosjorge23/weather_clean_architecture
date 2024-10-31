@@ -1,4 +1,5 @@
 import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
+import 'package:weather_clean_architecture/data/dto/daily_response_dto.dart';
 import 'package:weather_clean_architecture/data/dto/weather_response_dto.dart';
 import 'package:weather_clean_architecture/domain/entities/base_entity.dart';
 
