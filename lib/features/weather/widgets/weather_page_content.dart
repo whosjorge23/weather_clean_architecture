@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_clean_architecture/core/shared/context_extension.dart';
 import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
+import 'package:weather_clean_architecture/core/theme/cubit/app_settings_cubit.dart';
 import 'package:weather_clean_architecture/domain/entities/weather_response_entity.dart';
 import 'package:weather_clean_architecture/features/weather/widgets/weather_code_text.dart';
 import 'package:weather_clean_architecture/features/weather/widgets/weather_day_card.dart';
@@ -146,6 +148,20 @@ class WeatherPageContent extends StatelessWidget {
                     },
                   ),
                 ),
+              ),
+              DropdownButton<Locale>(
+                onChanged: context.read<AppSettingsCubit>().changeLocale,
+                value: context.watch<AppSettingsCubit>().state,
+                items: [
+                  DropdownMenuItem(
+                    value: Locale('en'),
+                    child: Text('English'),
+                  ),
+                  DropdownMenuItem(
+                    value: Locale('it'),
+                    child: Text('Italian'),
+                  ),
+                ],
               ),
             ],
           ),
