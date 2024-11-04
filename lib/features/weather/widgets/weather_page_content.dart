@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:weather_clean_architecture/core/routes/go_router_config.dart';
 import 'package:weather_clean_architecture/core/shared/context_extension.dart';
 import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
 import 'package:weather_clean_architecture/core/theme/cubit/app_settings_cubit.dart';
@@ -23,6 +25,14 @@ class WeatherPageContent extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(weatherEntity.timezone ?? ''),
+        actions: [
+          IconButton(
+            onPressed: () {
+              context.push(ScreenPaths.settings);
+            },
+            icon: const Icon(Icons.language),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -61,14 +71,14 @@ class WeatherPageContent extends StatelessWidget {
                   ],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
                     Text(
-                      'Daily Summary',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      context.l10n.daily_summary,
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ],
                 ),
@@ -114,12 +124,12 @@ class WeatherPageContent extends StatelessWidget {
                 ),
               ),
               const Gap(16),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
                     Text(
-                      'Weekly Forecast',
+                      context.l10n.weekly_forecast,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
@@ -148,20 +158,6 @@ class WeatherPageContent extends StatelessWidget {
                     },
                   ),
                 ),
-              ),
-              DropdownButton<Locale>(
-                onChanged: context.read<AppSettingsCubit>().changeLocale,
-                value: context.watch<AppSettingsCubit>().state,
-                items: [
-                  DropdownMenuItem(
-                    value: Locale('en'),
-                    child: Text('English'),
-                  ),
-                  DropdownMenuItem(
-                    value: Locale('it'),
-                    child: Text('Italian'),
-                  ),
-                ],
               ),
             ],
           ),

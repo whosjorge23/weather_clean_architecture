@@ -1,4 +1,9 @@
 {
+  "settings": "Settings",
+  "english": "English",
+  "italian": "Italian",
+  "daily_summary": "Daily Summary",
+  "weekly_forecast": "Weekly Forecast",
   "sunny": "Sunny",
   "clearsky": "Clear sky",
   "mainlyclear": "Mainly clear",

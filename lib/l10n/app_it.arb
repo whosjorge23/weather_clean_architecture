@@ -1,4 +1,9 @@
 {
+"settings": "Impostazioni",
+ "english": "Inglese",
+"italian": "Italiano",
+"daily_summary": "Sommario Giornaliero",
+"weekly_forecast": "Previsioni Settimanali",
   "sunny": "Soleggiato",
   "clearsky": "Cielo sereno",
   "mainlyclear": "Prevalentemente sereno",
