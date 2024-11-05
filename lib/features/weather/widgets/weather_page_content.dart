@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_clean_architecture/core/routes/go_router_config.dart';
 import 'package:weather_clean_architecture/core/shared/context_extension.dart';
-import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
-import 'package:weather_clean_architecture/core/theme/cubit/app_settings_cubit.dart';
 import 'package:weather_clean_architecture/domain/entities/weather_response_entity.dart';
 import 'package:weather_clean_architecture/features/weather/widgets/weather_code_text.dart';
 import 'package:weather_clean_architecture/features/weather/widgets/weather_day_card.dart';
@@ -45,7 +42,9 @@ class WeatherPageContent extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(
-                  DateFormat('EEEE, d MMMM').format(DateTime.now()),
+                  DateFormat('EEEE, d MMMM',
+                          Localizations.localeOf(context).toString())
+                      .format(DateTime.now()),
                   style: const TextStyle(
                     color: Color(0xff42c6ff),
                   ),
@@ -125,13 +124,13 @@ class WeatherPageContent extends StatelessWidget {
               ),
               const Gap(16),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Row(
                   children: [
                     Text(
                       context.l10n.weekly_forecast,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ],
                 ),
@@ -151,7 +150,9 @@ class WeatherPageContent extends StatelessWidget {
                         temperature:
                             '${weatherEntity.daily!.apparentTemperatureMax![index].toInt()}°/${weatherEntity.daily!.apparentTemperatureMin![index].toInt()}°',
                         weatherCode: weatherEntity.daily!.weatherCode![index],
-                        dateTime: DateFormat('d MMM').format(
+                        dateTime: DateFormat('d MMM',
+                                Localizations.localeOf(context).toString())
+                            .format(
                           DateTime.parse(weatherEntity.daily!.time![index]),
                         ),
                       );

@@ -4,7 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_clean_architecture/domain/usecases/app_settings_use_cases.dart';
 
 class AppSettingsCubit extends Cubit<Locale> {
-  AppSettingsCubit(this.appSettingsUseCases) : super(Locale('en'));
+  AppSettingsCubit(this.appSettingsUseCases) : super(Locale('en')) {
+    loadLocale();
+  }
 
   final AppSettingsUseCases appSettingsUseCases;
 
