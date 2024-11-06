@@ -18,7 +18,7 @@ class AppTheme {
       colorScheme: colorScheme,
       useMaterial3: true,
     ).copyWith(
-      scaffoldBackgroundColor: Color(0xff42c6ff),
+      scaffoldBackgroundColor: const Color(0xff42c6ff),
       appBarTheme: const AppBarTheme(
         backgroundColor: Color(0xff42c6ff),
       ),
@@ -34,6 +34,17 @@ class AppTheme {
       ),
       navigationBarTheme: const NavigationBarThemeData(
         elevation: 0,
+      ),
+      textTheme: const TextTheme(
+        titleLarge: TextStyle(color: Color(0xff000000)),
+        titleMedium: TextStyle(color: Color(0xff000000)),
+        titleSmall: TextStyle(color: Color(0xff000000)),
+        bodyLarge: TextStyle(color: Color(0xff42c6ff)),
+        bodyMedium: TextStyle(color: Color(0xff42c6ff)),
+        bodySmall: TextStyle(color: Color(0xff42c6ff)),
+        labelLarge: TextStyle(color: Color(0xff42c6ff)),
+        labelMedium: TextStyle(color: Color(0xff42c6ff)),
+        labelSmall: TextStyle(color: Color(0xff42c6ff)),
       ),
     );
   }
@@ -64,21 +75,15 @@ class AppTheme {
         elevation: 0,
       ),
       textTheme: TextTheme(
-        displayLarge: TextStyle(color: Color(0xff42c6ff)),
-        displayMedium: TextStyle(color: Color(0xff42c6ff)),
-        displaySmall: TextStyle(color: Color(0xff42c6ff)),
-        headlineLarge: TextStyle(color: Color(0xff42c6ff)),
-        headlineMedium: TextStyle(color: Color(0xff42c6ff)),
-        headlineSmall: TextStyle(color: Color(0xff42c6ff)),
         titleLarge: TextStyle(color: Color(0xff42c6ff)),
         titleMedium: TextStyle(color: Color(0xff42c6ff)),
-        titleSmall: TextStyle(color: Color(0xff42c6ff)),
-        bodyLarge: TextStyle(color: Color(0xff42c6ff)),
-        bodyMedium: TextStyle(color: Color(0xff42c6ff)),
-        bodySmall: TextStyle(color: Color(0xff42c6ff)),
-        labelLarge: TextStyle(color: Color(0xff42c6ff)),
-        labelMedium: TextStyle(color: Color(0xff42c6ff)),
-        labelSmall: TextStyle(color: Color(0xff42c6ff)),
+        titleSmall: TextStyle(color: Color(0xff000000)),
+        bodyLarge: TextStyle(color: Color(0xff000000)),
+        bodyMedium: TextStyle(color: Color(0xff000000)),
+        bodySmall: TextStyle(color: Color(0xff000000)),
+        labelLarge: TextStyle(color: Color(0xff000000)),
+        labelMedium: TextStyle(color: Color(0xff000000)),
+        labelSmall: TextStyle(color: Color(0xff000000)),
       ),
     );
   }

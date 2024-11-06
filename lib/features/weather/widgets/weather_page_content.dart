@@ -21,7 +21,10 @@ class WeatherPageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(weatherEntity.timezone ?? ''),
+        title: Text(
+          weatherEntity.timezone ?? '',
+          style: context.textTheme.titleLarge,
+        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -45,9 +48,7 @@ class WeatherPageContent extends StatelessWidget {
                   DateFormat('EEEE, d MMMM',
                           Localizations.localeOf(context).toString())
                       .format(DateTime.now()),
-                  style: const TextStyle(
-                    color: Color(0xff42c6ff),
-                  ),
+                  style: context.textTheme.labelSmall?.copyWith(fontSize: 12),
                 ),
               ),
               const Gap(16),
@@ -61,11 +62,13 @@ class WeatherPageContent extends StatelessWidget {
                   children: [
                     Text(
                       '${weatherEntity.current?.apparentTemperature?.toInt()}',
-                      style: const TextStyle(fontSize: 150),
+                      style:
+                          context.textTheme.titleLarge?.copyWith(fontSize: 150),
                     ),
                     Text(
                       '${weatherEntity.currentUnits?.apparentTemperature}',
-                      style: const TextStyle(fontWeight: FontWeight.w500),
+                      style: context.textTheme.titleSmall
+                          ?.copyWith(fontSize: 16, fontWeight: FontWeight.w500),
                     )
                   ],
                 ),
@@ -76,8 +79,8 @@ class WeatherPageContent extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.daily_summary,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16),
+                      style: context.textTheme.titleMedium
+                          ?.copyWith(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ],
                 ),
@@ -129,8 +132,8 @@ class WeatherPageContent extends StatelessWidget {
                   children: [
                     Text(
                       context.l10n.weekly_forecast,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16),
+                      style: context.textTheme.titleMedium
+                          ?.copyWith(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                   ],
                 ),

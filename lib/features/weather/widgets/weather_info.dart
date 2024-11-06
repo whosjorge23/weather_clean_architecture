@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:weather_clean_architecture/core/shared/context_extension.dart';
 
 class WeatherInfo extends StatelessWidget {
   const WeatherInfo(
@@ -23,16 +24,13 @@ class WeatherInfo extends StatelessWidget {
         const Gap(8),
         Text(
           weatherInfo,
-          style: const TextStyle(
+          style: context.textTheme.labelSmall?.copyWith(
             fontWeight: FontWeight.bold,
-            color: Color(0xff42c6ff),
           ),
         ),
         Text(
           label,
-          style: const TextStyle(
-            color: Color(0xff42c6ff),
-          ),
+          style: context.textTheme.labelSmall?.copyWith(fontSize: 14),
         ),
       ],
     );

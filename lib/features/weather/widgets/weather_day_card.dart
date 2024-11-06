@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:weather_clean_architecture/core/shared/context_extension.dart';
 import 'package:weather_clean_architecture/core/shared/enums/weather_code_enum.dart';
 import 'package:weather_clean_architecture/features/weather/widgets/weather_code_text.dart';
 
@@ -32,23 +33,19 @@ class WeatherDayCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Gap(8),
-                Text(
-                  temperature,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                  ),
-                ),
+                Text(temperature,
+                    style: context.textTheme.titleLarge?.copyWith(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
+                    )),
                 const Spacer(),
                 WeatherCodeText(weatherCodeEnum: weatherCode),
                 const Spacer(),
                 Text(
                   dateTime,
-                  style: TextStyle(
+                  style: context.textTheme.titleMedium?.copyWith(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: Colors.black,
                   ),
                 ),
               ],
