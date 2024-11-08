@@ -3,6 +3,7 @@ import 'package:weather_clean_architecture/core/di/shared_export.dart';
 import 'package:weather_clean_architecture/core/environment/environment.dart';
 import 'package:weather_clean_architecture/core/network/network_client.dart';
 import 'package:weather_clean_architecture/core/service/locale_service.dart';
+import 'package:weather_clean_architecture/core/service/location_service.dart';
 import 'package:weather_clean_architecture/core/service/shared_preferences_service.dart';
 import 'package:weather_clean_architecture/data/datasource/local/app_settings_local_data_source.dart';
 import 'package:weather_clean_architecture/data/datasource/local/app_settings_local_data_source_impl.dart';
@@ -27,6 +28,7 @@ void registerDependencies(Environment environment) {
   getIt.registerSingleton(environment);
   getIt.registerSingleton(LocaleService());
   getIt.registerSingleton(SharedPreferenceService());
+  getIt.registerSingleton(LocationService());
 
   // Api Client
   //registerSingleton is used to create a single instance of the object and return it every time it is requested
@@ -39,7 +41,7 @@ void registerDependencies(Environment environment) {
       WeatherRemoteDataSourceImpl(client: weatherApiClient));
 
   getIt.registerSingleton<LocationLocalDataSource>(
-      LocationLocalDataSourceImpl());
+      LocationLocalDataSourceImpl(locationService: locationService));
 
   getIt.registerSingleton<AppSettingsLocalDataSource>(
     AppSettingsLocalDataSourceImpl(

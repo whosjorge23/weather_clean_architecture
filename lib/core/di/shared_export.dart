@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:weather_clean_architecture/core/environment/environment.dart';
 import 'package:weather_clean_architecture/core/service/locale_service.dart';
+import 'package:weather_clean_architecture/core/service/location_service.dart';
 import 'package:weather_clean_architecture/core/service/shared_preferences_service.dart';
 import 'package:weather_clean_architecture/data/datasource/local/app_settings_local_data_source.dart';
 import 'package:weather_clean_architecture/data/datasource/location/location_local_data_source.dart';
@@ -50,3 +51,5 @@ AppSettingsUseCases get appSettingsUseCases => GetIt.I<AppSettingsUseCases>();
 //Services
 // Locale app service
 LocaleService get localeService => GetIt.I<LocaleService>();
+// Location app service
+LocationService get locationService => GetIt.I<LocationService>();
